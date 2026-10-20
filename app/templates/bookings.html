@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+    <h1>Venue Bookings</h1>
+    {% if bookings %}
+    <table class="table">
+            <tr><th>Group</th><th>Venue</th><th>Start Time</th><th>End Time</th></tr>
+            {% for booking in bookings %}
+            <tr><td>{{booking.group.name}}</td>
+                <td>{{booking.venue.name}}</td>
+                <td>{{booking.start_time}}</td>
+                <td>{{booking.end_time}}</td>
+                </tr>
+            {% endfor %}
+        </table><br>
+    {% endif %}
+
+    <h3>Add a new booking:</h3>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>{{form.group.label}} {{form.group}}</p>
+        <p>{{form.venue.label}} {{form.venue}}</p>
+        <p>{{form.start_time.label}} {{form.start_time}}</p>
+        <p>{{form.end_time.label}} {{form.end_time}}</p>
+         <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

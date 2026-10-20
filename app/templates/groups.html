@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Groups</h1>
+<i>Here you can view all existing groups.</i>
+<br>
+<br>
+<br>
+<table>
+    <tr><th>Name</th><th>Leader</th><th>Topic</th></tr>
+    {% for group in groups %}
+    <tr><td>{{ group.name }}</td><td>{{ group.leader.username }}</td><td>{{ group.topic.name }}</td><td><a href="{{ url_for('manage_group', group_id=group.id) }}">View Group</a></td></tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<a href="{{url_for('add_group') }}">Add a new group</a>
+
+
+{% endblock %}

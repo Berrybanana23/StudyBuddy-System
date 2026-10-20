@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+{% block content %}
+    <h1> Sign In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{form.username.label}}<br>
+            {{form.username(size=32)}}
+        </p>
+        <p>
+            {{form.password.label}}<br>
+            {{form.password(size=32)}}
+        </p>
+        <p>{{ form.remember_me() }} {{form.remember_me.label}}</p>
+        <p>{{form.submit()}}</p>
+    </form>
+
+<p>No account yet?</p>
+<a href="{{url_for('register') }}">Register here</a>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+    body {
+    background-color: ghostwhite;
+    color: black
+    }
+
+
+    table, tr {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+    }

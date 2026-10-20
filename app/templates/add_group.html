@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+    <h1>Add a Group</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <b>{{form.name.label}}</b>
+        {{ form.name(size=15) }}
+
+        <b>{{form.topic_id}}</b>
+        {{ form.topic }}
+
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}

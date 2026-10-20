@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+    <h1>Venues</h1>
+ <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+    <table>
+        <tr><th>Name:</th></tr>
+        {% for venue in venues %}
+        <tr><td>{{venue.name}}</td></tr>
+        {% endfor %}
+    </table>
+     <br>
+     <br>
+     <u><strong>Add new venue:</strong></u><br><br>
+     {{ form.name.label }} {{ form.name }}
+        <p>{{ form.submit() }}</p>
+ </form>
+
+<br>
+<br>
+<a href="{{ url_for('bookings') }}">Make a Booking</a>
+
+{% endblock %}

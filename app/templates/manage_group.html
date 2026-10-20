@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+{% block content %}
+<h1>Manage Group</h1>
+<b>Name:</b> {{group.name}}<br>
+<b>Topic:</b> {{group.topic.name}}<br><br>
+
+<form action="" method="post" novalidate>
+    {{form.hidden_tag()}}
+    <b>Members:</b>
+    <ul>
+        {% for value, label in form.students.choices %}
+        <li>
+            <label>
+                <input type="checkbox" name="students" value="{{ value }}">
+                {{ label }}
+            </label>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p>{{ form.remove() }}</p>
+    {{ form.student.label }}
+    {{ form.student() }}
+    <p>{{ form.add }}</p>
+</form>
+
+{% endblock%}
